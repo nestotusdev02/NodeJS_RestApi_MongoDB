@@ -10,3 +10,10 @@ const create = async function(req, res){
     return ReS(res, {message:'Successfully created new ibeacon.'}, 201);
 }
 module.exports.create = create;
+
+const getAll = async function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    let ibeacons = await to(Ibeacon.find());
+    return ReS(res, {ibeacons},201);
+}
+module.exports.getAll = getAll;

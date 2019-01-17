@@ -1,4 +1,11 @@
 const mongoose 			= require('mongoose');
+const bcrypt 			= require('bcrypt');
+const bcrypt_p 			= require('bcrypt-promise');
+const jwt           	= require('jsonwebtoken');
+const Company           = require('./company.model');
+const validate          = require('mongoose-validator');
+const {TE, to}          = require('../services/util.service');
+const CONFIG            = require('../config/config');
 
 let IbeaconSchema = mongoose.Schema({
     cust_id:    {type:String},
@@ -7,4 +14,4 @@ let IbeaconSchema = mongoose.Schema({
     MinorID:    {type:Number}
 }, {timestamps: true});
 
-let iBeacon = module.exports = mongoose.model('Ibeacon', IbeaconSchema);
+let Ibeacon = module.exports = mongoose.model('Ibeacon', IbeaconSchema);
