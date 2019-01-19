@@ -8,10 +8,10 @@ const {TE, to}          = require('../services/util.service');
 const CONFIG            = require('../config/config');
 
 let IbeaconSchema = mongoose.Schema({
-    cust_id:    {type:String},
-    UUID:       {type:String},
-    MajorID:    {type:Number},
-    MinorID:    {type:Number}
+    customer_id:{type : mongoose.Schema.ObjectId, ref : 'Customer'},
+    UUID:{type:String},
+    MajorID:{type:Number},
+    MinorID:{type:Number}
 }, {timestamps: true});
 
 let Ibeacon = module.exports = mongoose.model('Ibeacon', IbeaconSchema);

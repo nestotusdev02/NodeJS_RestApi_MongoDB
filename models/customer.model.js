@@ -1,17 +1,17 @@
 const mongoose 			= require('mongoose');
 const {TE, to}          = require('../services/util.service');
 
-let CustomerSchema = mongoose.Schema({
-    name    :   {type:String},
-    address :   [{ 
+let VisitSchema = mongoose.Schema({
+    customer_name : {type:String},
+    address : [{ 
         addr1:{type:String}, 
         addr2:{type:String}, 
         city:{type:String}, 
         state:{type:String}, 
         zip:{type:Number} 
     }],
-    status  :   {type:Boolean},
-    user    :   {type : mongoose.Schema.ObjectId, ref : 'User'},
+    status : {type:Boolean},
+    user_id : {type : mongoose.Schema.ObjectId, ref : 'User'},
 }, {timestamps: true});
 
 CustomerSchema.methods.toWeb = function(){
